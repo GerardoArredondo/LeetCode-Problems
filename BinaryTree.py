@@ -35,6 +35,13 @@ class BinaryTreeNode:
             if nodoActual.rightChild != None:
                 queue.append(nodoActual.rightChild)
         return arrayARetornar
+    
+    def valueFinder(self, root, target):
+        if root == None:
+            return False
+        if root.value == target:
+            return True
+        return (self.valueFinder(root.leftChild, target)) or (self.valueFinder(root.rightChild, target))
 
 
 
@@ -63,6 +70,8 @@ child4.rightChild = child7
         
 print(f"En DFS el resultado es {root.depthFirst(root)}")
 print(f"En BFS el resultado es {root.breathFirst(root)}")
+
+print(f"El 4 está en el árbol? --> {root.valueFinder(root, 4)}")
 
 
 
