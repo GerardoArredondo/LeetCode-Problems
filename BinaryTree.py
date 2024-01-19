@@ -42,6 +42,32 @@ class BinaryTreeNode:
         if root.value == target:
             return True
         return (self.valueFinder(root.leftChild, target)) or (self.valueFinder(root.rightChild, target))
+    
+    def totalSum(self, root):
+        if root == None:
+            return 0
+        return root.value + (self.totalSum(root.leftChild)) + (self.totalSum(root.rightChild))
+        
+    def minValue(self, root):
+        if root == None:
+            return 
+        stack = []
+        valorMin = float('inf')
+        stack.append(root)
+        while stack.__len__() != 0:
+            current = stack.pop()
+            if current.value < valorMin:
+                valorMin = current.value
+
+            if current.leftChild != None:
+                stack.append(current.leftChild)
+            if current.rightChild != None:
+                stack.append(current.rightChild)
+        return valorMin
+        
+        
+
+        
 
 
 
@@ -72,6 +98,10 @@ print(f"En DFS el resultado es {root.depthFirst(root)}")
 print(f"En BFS el resultado es {root.breathFirst(root)}")
 
 print(f"El 4 está en el árbol? --> {root.valueFinder(root, 4)}")
+
+print(f"La suma total en el árbol binario es: {root.totalSum(root)}")
+
+print(f"El valor mínimo en el árbol es {root.minValue(root)}")
 
 
 
