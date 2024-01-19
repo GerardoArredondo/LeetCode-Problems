@@ -5,6 +5,8 @@ class BinaryTreeNode:
         self.rightChild = rightChild
 
     def depthFirst(self, root):
+        if root == None:
+            return []
         stack = []
         arrayARetornar = []
         stack.append(root)
@@ -18,6 +20,23 @@ class BinaryTreeNode:
                 stack.append(acutal.leftChild)
         
         return arrayARetornar
+    
+    def breathFirst(self, root):
+        if root == None:
+            return []
+        queue = []
+        arrayARetornar = []
+        queue.append(root)
+        while queue.__len__() != 0:
+            nodoActual = queue.pop(0) #We use index 0 because we're using queue, if not for the zero, FIFO wouldn't be true 
+            arrayARetornar.append(nodoActual.value)
+            if nodoActual.leftChild != None:
+                queue.append(nodoActual.leftChild)
+            if nodoActual.rightChild != None:
+                queue.append(nodoActual.rightChild)
+        return arrayARetornar
+
+
 
         
 
@@ -42,7 +61,8 @@ child4.rightChild = child7
 
 
         
-print(root.depthFirst(root))
+print(f"En DFS el resultado es {root.depthFirst(root)}")
+print(f"En BFS el resultado es {root.breathFirst(root)}")
 
 
 
