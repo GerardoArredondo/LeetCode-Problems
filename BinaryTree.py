@@ -6,25 +6,20 @@ class BinaryTreeNode:
 
     def depthFirst(self, root):
         stack = []
+        arrayARetornar = []
         stack.append(root)
         while stack.__len__() != 0:
             acutal = stack.pop()
-            print(acutal.value)
-
+            arrayARetornar.append(acutal.value)
+            
             if acutal.rightChild:
                 stack.append(acutal.rightChild)
             if acutal.leftChild:
                 stack.append(acutal.leftChild)
+        
+        return arrayARetornar
 
         
-
-        
-        
-
-
-
-    
-
 
 child1 =  BinaryTreeNode(1)
 child2 =  BinaryTreeNode(2)
@@ -47,7 +42,7 @@ child4.rightChild = child7
 
 
         
-root.depthFirst(root)
+print(root.depthFirst(root))
 
 
 
