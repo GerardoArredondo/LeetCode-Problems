@@ -64,14 +64,14 @@ class BinaryTreeNode:
             if current.rightChild != None:
                 stack.append(current.rightChild)
         return valorMin
-        
-        
-
-        
 
 
 
-        
+
+
+
+
+
 
 child1 =  BinaryTreeNode(1)
 child2 =  BinaryTreeNode(2)
