@@ -70,6 +70,27 @@ class LinkedList:
 
 
 
+    #  0  1  2  3  4  5  6 <-- indexes
+    # 10 11 12 13 14 15 16
+    #  1  2  3  4  5  6  7 <-- positions
+    def deleteAtIndex(self, index):
+        if index > (self.len - 1) or index < 0:
+            print("No hay elemento en esa posición")
+        elif index == 0:
+            self.deleteHead()
+        elif index == (self.len -1):
+            self.deleteTail()
+        else:
+            current = self.head
+            for i in range(index - 1):
+                current = current.next
+            current.next = current.next.next
+            self.len -= 1
+
+
+
+
+
 
     def imprimirLinkedList(self):
         if self.head == None and self.tail == None:
@@ -81,6 +102,9 @@ class LinkedList:
             print(current.value, end=" ")
             current = current.next
         print("")
+
+    def getLen(self):
+        print(self.len)
             
         
         
@@ -113,5 +137,8 @@ head.addAtIndex(10000, 6)
 head.imprimirLinkedList()
 
 head.deleteTail()
+head.imprimirLinkedList()
+
+head.deleteAtIndex(4)
 head.imprimirLinkedList()
         
