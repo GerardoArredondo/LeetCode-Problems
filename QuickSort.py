@@ -19,10 +19,16 @@ def partirArray(arr, inicio, final):
             arr[i] = arr[j]
             arr[j] = temporal
     
+    temporal = arr[i+1]
+    arr[i+1] = arr[final]
+    arr[final] = temporal
+    
     return i+1
 
 array = [math.floor(random.random()*100) for _ in range(10)]
-print(quicksort(array, 0, len(array)))
+quicksort(array, 0, len(array)-1)
+
+print(array)
 
     
     
