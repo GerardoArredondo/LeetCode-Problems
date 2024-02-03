@@ -22,7 +22,7 @@ class BinaryTreeNode:
         return arrayARetornar
     
     def breathFirst(self, root):
-        if root == None
+        if root == None:
             return []
         queue = []
         arrayARetornar = []
