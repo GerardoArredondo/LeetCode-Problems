@@ -27,6 +27,7 @@ class BinaryTreeNode:
         queue = []
         arrayARetornar = []
         queue.append(root)
+        
         while queue.__len__() != 0:
             nodoActual = queue.pop(0) #We use index 0 because we're using queue, if not for the zero, FIFO wouldn't be true 
             arrayARetornar.append(nodoActual.value)
